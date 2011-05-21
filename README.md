@@ -3,7 +3,7 @@ What Does it do?
 
 Compatible with Rails 3.0.x (Rails 3.1.x support is coming).
 
-backbonejs-rails is similar to jquery-rails. It adds the Javascript files that you need to create an application that uses [backbone.js](http://documentcloud.github.com/backbone/) as a JavaScript MVC. This gem will get the most recent version of these files from their master branches on github.
+backbonejs-rails is similar to [jquery-rails](https://github.com/JangoSteve/jquery-rails). It adds the Javascript files that you need to create an application that uses [backbone.js](http://documentcloud.github.com/backbone/) as a JavaScript MVC. This gem will get the most recent version of these files from their master branches on github.
 
 These are:
 
