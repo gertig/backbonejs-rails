@@ -39,6 +39,7 @@ Installation
 ------------
 
 The best way to install backbonejs-rails is by adding the following to your Gemfile:
+    
     gem "jquery-rails"
     gem "backbonejs-rails"
 
