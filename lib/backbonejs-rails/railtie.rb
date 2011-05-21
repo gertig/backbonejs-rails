@@ -9,7 +9,6 @@ module Backbonejs
         # Merge the jQuery scripts, remove the Prototype defaults and finally add 'rails'
         # at the end, because load order is important
         config.action_view.javascript_expansions[:defaults] |= js_defaults
-        #config.action_view.javascript_expansions[:defaults] << 'icanhaz'
       end
     end
 
