@@ -25,7 +25,7 @@ Upon installation the files are added to your javascript defaults so that you ca
 Installation
 ------------
 
-The best way to install backbone-rails is by adding the following to your Gemfile:
+The best way to install backbonejs-rails is by adding the following to your Gemfile:
     gem "jquery-rails"
     gem "backbonejs-rails"
 
@@ -39,4 +39,4 @@ Usage
     $ rails g jquery:install
     $ rails g backbonejs:install
 
-
+If you have already installed jquery and removed prototype then you can skip that step.
