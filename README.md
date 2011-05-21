@@ -1,5 +1,5 @@
 What Does it do?
-----------------
+================
 
 Compatible with Rails 3.0.x (Rails 3.1.x support is coming).
 
