@@ -1,4 +1,4 @@
-moduel Backbonejs
+module Backbonejs
   module Rails
 
     class Railtie < ::Rails::Railtie
