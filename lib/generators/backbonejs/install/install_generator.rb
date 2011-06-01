@@ -30,25 +30,25 @@ module Backbonejs
           new_file = "public/javascripts/#{file_name}.js"
 
           
-          begin         
-            c = Curl::Easy.new(file_url)
-            c.perform
-          
-            if File.exist?(new_file)  
-              puts "Skipping #{file_name}.js because it already exists"  
-            else  
-              puts "Generating #{new_file}"  
-              create_file new_file
-              append_to_file new_file, c.body_str
-            end
-          
-          rescue
-            puts "Connection to #{the_url} failed!"
-            puts "Falling back to copying over a, most likely, older version."
+          #begin         
+          #   c = Curl::Easy.new(file_url)
+          #   c.perform
+          # 
+          #   if File.exist?(new_file)  
+          #     puts "Skipping #{file_name}.js because it already exists"  
+          #   else  
+          #     puts "Generating #{new_file}"  
+          #     create_file new_file
+          #     append_to_file new_file, c.body_str
+          #   end
+          # 
+          # rescue
+          #   puts "Connection to #{the_url} failed!"
+          #   puts "Falling back to copying over a, most likely, older version."
             
             say_status("copying", "#{file_name}.js", :green)
             copy_file "#{file_name}.js", "public/javascripts/#{file_name}.js"
-          end
+         # end
 
         end
       end
