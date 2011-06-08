@@ -11,18 +11,17 @@ module Backbonejs
       desc "This generator installs backbone.js #{@@backbone_version}, underscore.js #{@@underscore_version}, json2.js, and (optionally) icanhaz.js #{@@icanhaz_version}"
       class_option :ich, :type => :boolean, :default => false, :desc => "Include ICanHaz.js"
       source_root File.expand_path('../../../../../vendor/assets/javascripts', __FILE__)
-      
-      def fetch_libraries
-        url_backbone = "http://documentcloud.github.com/backbone/backbone.js"
-        url_backbone_min = "http://documentcloud.github.com/backbone/backbone-min.js"
-        url_underscore = "http://documentcloud.github.com/underscore/underscore.js"
-        url_underscore_min = "http://documentcloud.github.com/underscore/underscore-min.js"
-        url_icanhaz = "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.js"
-        url_icanhaz_min = "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.min.js"
-        url_json2 = "https://github.com/douglascrockford/JSON-js/raw/master/json2.js"
 
-        urls = {"backbone" => url_backbone, "backbone.min" => url_backbone_min, "underscore" => url_underscore, "underscore.min" => url_underscore_min,
-               "json2" => url_json2, "icanhaz" => url_icanhaz, "icanhaz.min" => url_icanhaz_min }
+      def fetch_libraries
+        urls = {
+          "backbone" => "http://documentcloud.github.com/backbone/backbone.js",
+          "backbone.min" => "http://documentcloud.github.com/backbone/backbone-min.js",
+          "underscore" => "http://documentcloud.github.com/underscore/underscore.js",
+          "underscore.min" => "http://documentcloud.github.com/underscore/underscore-min.js",
+          "json2" => "https://github.com/douglascrockford/JSON-js/raw/master/json2.js",
+          "icanhaz" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.js",
+          "icanhaz.min" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.min.js"
+        }
 
         urls.each do |url|
           file_url = url[1]
