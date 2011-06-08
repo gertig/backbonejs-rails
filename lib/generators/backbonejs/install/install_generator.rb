@@ -18,10 +18,15 @@ module Backbonejs
           "backbone.min" => "http://documentcloud.github.com/backbone/backbone-min.js",
           "underscore" => "http://documentcloud.github.com/underscore/underscore.js",
           "underscore.min" => "http://documentcloud.github.com/underscore/underscore-min.js",
-          "json2" => "https://github.com/douglascrockford/JSON-js/raw/master/json2.js",
-          "icanhaz" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.js",
-          "icanhaz.min" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.min.js"
+          "json2" => "https://github.com/douglascrockford/JSON-js/raw/master/json2.js"
         }
+
+        if options[:ich]
+          urls.merge!(
+            "icanhaz" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.js",
+            "icanhaz.min" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.min.js"
+          )
+        end
 
         urls.each do |url|
           file_url = url[1]
