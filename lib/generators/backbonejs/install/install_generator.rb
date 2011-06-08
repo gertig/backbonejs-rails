@@ -1,5 +1,6 @@
 require 'rails'
-require 'curb'
+require 'net/http'
+require 'uri'
 
 module Backbonejs
   module Generators
@@ -18,42 +19,43 @@ module Backbonejs
           "backbone.min" => "http://documentcloud.github.com/backbone/backbone-min.js",
           "underscore" => "http://documentcloud.github.com/underscore/underscore.js",
           "underscore.min" => "http://documentcloud.github.com/underscore/underscore-min.js",
-          "json2" => "https://github.com/douglascrockford/JSON-js/raw/master/json2.js"
+          "json2" => "https://raw.github.com/douglascrockford/JSON-js/master/json2.js"
         }
 
         if options[:ich]
           urls.merge!(
-            "icanhaz" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.js",
-            "icanhaz.min" => "https://github.com/andyet/ICanHaz.js/raw/master/ICanHaz.min.js"
+            "icanhaz" => "https://raw.github.com/andyet/ICanHaz.js/master/ICanHaz.js",
+            "icanhaz.min" => "https://raw.github.com/andyet/ICanHaz.js/master/ICanHaz.min.js"
           )
         end
 
-        urls.each do |url|
-          file_url = url[1]
-          file_name = url[0]     
+        urls.each do |file_name, file_url|
           new_file = "public/javascripts/#{file_name}.js"
 
-          
-          #begin         
-          #   c = Curl::Easy.new(file_url)
-          #   c.perform
-          # 
-          #   if File.exist?(new_file)  
-          #     puts "Skipping #{file_name}.js because it already exists"  
-          #   else  
-          #     puts "Generating #{new_file}"  
-          #     create_file new_file
-          #     append_to_file new_file, c.body_str
-          #   end
-          # 
-          # rescue
-          #   puts "Connection to #{the_url} failed!"
-          #   puts "Falling back to copying over a, most likely, older version."
-            
-            say_status("copying", "#{file_name}.js", :green)
-            copy_file "#{file_name}.js", "public/javascripts/#{file_name}.js"
-         # end
+          say_status('download', file_url, :green)
+          begin
+            url = URI.parse(file_url)
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true if url.scheme == 'https'
 
+            request = Net::HTTP::Get.new(url.request_uri)
+            response = http.request(request)
+
+            case response
+            when Net::HTTPSuccess
+              # No need to check if file already exists.
+              # Generator detects conflict and asks for action.
+              create_file new_file
+              append_to_file new_file, response.body
+            else
+              res.error!
+            end
+
+          rescue
+            say_status('failed', "Downloading #{file_url} failed", :red)
+            say_status('copying', "#{file_name}.js (from local copy)", :green)
+            copy_file "#{file_name}.js", "public/javascripts/#{file_name}.js"
+          end
         end
       end
 
