@@ -1,7 +1,51 @@
+Installation
+------------
+
+Add the following to your Gemfile:
+    
+    gem "backbonejs-rails", "~> 0.0.5"
+
+Then use Bundler to install:
+
+    $ bundle install
+
+Usage
+-------
+
+    $ rails g backbonejs:install
+
+Optionally you can add -ich to the end of that command to have icanhaz.js included.
+
+
 What Does it do?
 ================
 
-Compatible with Rails 3.0.x (Rails 3.1.x support is coming).
+Rails 3.1
+---------
+
+backbonejs-rails adds the necessary libraries to your Rails app for using [backbone.js](http://documentcloud.github.com/backbone/). Also, under your assets/javascripts folder it will create the following folder structure:
+
+    /backone
+      /models
+      /routers
+      /views
+
+The gem includes the following files in its vendor/assets/javascripts folder, which means you can use any of them in your application.js file by adding something like 
+
+    //= require underscore 
+    
+after 
+
+    //= require jquery.
+
+
+* backbone.js
+* underscore.js
+* icanhaz.js
+* json2.js
+
+Rails 3.0
+---------
 
 backbonejs-rails is similar to [jquery-rails](https://github.com/JangoSteve/jquery-rails). It adds the Javascript files that you need to create an application that uses [backbone.js](http://documentcloud.github.com/backbone/) as a JavaScript MVC. This gem will get the most recent version of these files from their master branches on github.
 
@@ -13,7 +57,9 @@ These are:
 * underscore.min.js
 * json2.js
 
-For templates I have included [ICanHaz.js](http://icanhazjs.com/)
+For templates I have included [ICanHaz.js](http://icanhazjs.com/) which you can optionally include by doing the following
+
+    $ rails g backbonejs:install -ich 
 
 * icanhaz.js
 * icanhaz.min.js
@@ -34,26 +80,6 @@ Which is what you need to return JSON to Backbone the way it likes it. Otherwise
     def create
         render :json => Person.create(:name => params[:name], :age => params[:age])
     end
-
-Installation
-------------
-
-The best way to install backbonejs-rails is by adding the following to your Gemfile:
-    
-    gem "jquery-rails"
-    gem "backbonejs-rails", "~> 0.0.3"
-
-Then use Bundler to install:
-
-    $ bundle install
-
-Usage
--------
-
-    $ rails g jquery:install
-    $ rails g backbonejs:install
-
-If you have already installed jquery and removed prototype then you can skip that step.
 
 You can find my [screencast on Backbone.js and Rails 3 here](http://andrewgertig.com/2011/05/rails-backbone-js-example-screencast/)
 
