@@ -34,9 +34,9 @@ The gem includes the following files in its vendor/assets/javascripts folder, wh
 
     //= require underscore 
     
-after 
+after this line:
 
-    //= require jquery.
+    //= require jquery
 
 
 * backbone.js
