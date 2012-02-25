@@ -26,3 +26,14 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 end
+
+
+#Updating the gem
+
+# 1. Make necessary changes, then do git commit
+# 2. Bump the version number in lib/backbonejs-rails/version.rb
+# 3. Bump the version numbers for the js files you change in lib/generators/backbonejs/install/install_generator.rb
+# 4. Bump the version number in the README.md
+# 5. $ gem build backbonejs-rails.gemspec
+# 6. $ gem push backbonejs-rails-0.0.X.gem
+# 7. Rejoice
