@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
 end
 
 
-#Updating the gem
+#Updating the gem from Railscast 245
 
 # 1. Make necessary changes, then do git commit
 # 2. Bump the version number in lib/backbonejs-rails/version.rb
