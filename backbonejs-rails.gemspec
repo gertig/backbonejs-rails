@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["andrew.gertig@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Provide files needed for using Backbone.js}
-  s.description = %q{This gem works with Rails 3.0.x. It creates the following files in public/javasripts: backbone.js, underscore.js, json2.js, and optionally icanhaz.js for templates. It also creates an initializer that fixes the way Rails returns JSON to Backbone.js}
+  s.description = %q{This gem is noth Rails 3.1+ and Rails 3.0.x compatible. It creates the following files in public/javasripts: backbone.js, underscore.js, json2.js, and optionally icanhaz.js for templates. It also creates an initializer that fixes the way Rails returns JSON to Backbone.js}
 
   s.rubyforge_project = "backbonejs-rails"
   

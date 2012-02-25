@@ -3,7 +3,7 @@ Installation
 
 Add the following to your Gemfile:
     
-    gem "backbonejs-rails", "~> 0.0.5"
+    gem "backbonejs-rails", "~> 0.0.6"
 
 Then use Bundler to install:
 
