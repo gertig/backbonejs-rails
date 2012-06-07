@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Backbonejs::Rails::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Andrew Gertig"]
-  s.email       = ["andrew.gertig@gmail.com"]
+  s.email       = ["gitreg@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Provide files needed for using Backbone.js}
   s.description = %q{This gem is noth Rails 3.1+ and Rails 3.0.x compatible. It creates the following files in public/javasripts: backbone.js, underscore.js, json2.js, and optionally icanhaz.js for templates. It also creates an initializer that fixes the way Rails returns JSON to Backbone.js}
