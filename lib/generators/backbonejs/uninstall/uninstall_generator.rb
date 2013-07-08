@@ -14,10 +14,8 @@ module Backbonejs
         ['backbone', 'underscore', 'json2', 'icanhaz'].each do |lib|
           unless [*options[:keep]].include?(lib)
             # Remove full and minified version of library
-            ['', '.min'].each do |suffix|
-              file = "public/javascripts/#{lib}#{suffix}.js"
-              remove_file file if File.exists?(file)
-            end
+            file = "public/javascripts/#{lib}.js"
+            remove_file file if File.exists?(file)
           end
         end
       end
