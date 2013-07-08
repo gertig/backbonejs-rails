@@ -1,9 +1,12 @@
+Backbone.js 1.0.0
+Underscore.js 1.5.0
+
 Installation
 ------------
 
 Add the following to your Gemfile:
     
-    gem "backbonejs-rails", "~> 1.0.0"
+    gem "backbonejs-rails", "~> 1.0.1"
 
 Then use Bundler to install:
 
