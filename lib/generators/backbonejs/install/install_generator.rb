@@ -6,22 +6,21 @@ require 'uri'
 module Backbonejs
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
-      @@backbone_version   = '0.9.1'
-      @@underscore_version = '1.3.1'
-      @@icanhaz_version = '0.10'
       
-      desc "This generator installs backbone.js #{@@backbone_version}, underscore.js #{@@underscore_version}, json2.js, and (optionally) icanhaz.js #{@@icanhaz_version}"
-      class_option :ich, :type => :boolean, :aliases => "-i", :default => false, :desc => 'Include ICanHaz.js'
+      desc "This generator installs backbone.js, underscore.js, and json2.js"
+      source_root File.expand_path('../javascripts', __FILE__)
+      # class_option :ich, :type => :boolean, :aliases => "-i", :default => false, :desc => 'Include ICanHaz.js'
+
+      # Copy backbone, underscore, json2 to assets folder
+      def copy_backbone
+        copy_file "backbone.js", "app/assets/javascripts/backbone.js"
+        copy_file "underscore.js", "app/assets/javascripts/underscore.js"
+        copy_file "json2.js", "app/assets/javascripts/json2.js"
+      end
       
       def insert_backbone_in_applicationjs
         inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
           "//= require json2\n//= require underscore\n//= require backbone\n"
-        end
-        
-        if options[:ich]
-          inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
-            "//= require icanhaz\n"
-          end
         end
       end
       
