@@ -8,13 +8,12 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Andrew Gertig"]
   s.email       = ["andrew.gertig@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{Provide files needed for using Backbone.js}
-  s.description = %q{This gem is both Rails 3.1+ and Rails 3.0.x compatible. It creates the following files in public/javasripts: backbone.js, underscore.js, json2.js, and optionally icanhaz.js for templates. It also creates an initializer that fixes the way Rails returns JSON to Backbone.js}
+  s.homepage    = "https://github.com/AndrewGertig/backbonejs-rails"
+  s.summary     = %q{Provide files needed for using Backbone.js with Rails 3.1+}
+  s.description = %q{All it does it give you the files you need, nothing fancy. When installed it will require Backbone.js, Underscore.js, and json2.js}
 
   s.rubyforge_project = "backbonejs-rails"
   
-  s.add_dependency "railties", "~> 3.0"
   s.add_dependency "thor",     "~> 0.14"
   s.add_development_dependency "bundler", "~> 1.0.0"
   s.add_development_dependency "rails",   "~> 3.0"
